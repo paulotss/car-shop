@@ -1,26 +1,32 @@
 import { Router } from 'express';
-import VehicleController from '../Controllers/VehicleController';
+import MotorcycleController from '../Controllers/MotorcycleController';
+import CarController from '../Controllers/CarController';
 
 const routes = Router();
 
 routes.post(
   '/cars',
-  (req, res, next) => new VehicleController(req, res, next).create(),
+  (req, res, next) => new CarController(req, res, next).create(),
+);
+
+routes.post(
+  '/motorcycles',
+  (req, res, next) => new MotorcycleController(req, res, next).create(),
 );
 
 routes.get(
   '/cars',
-  (req, res, next) => new VehicleController(req, res, next).getAll(),
+  (req, res, next) => new CarController(req, res, next).getAll(),
 );
 
 routes.get(
   '/cars/:id',
-  (req, res, next) => new VehicleController(req, res, next).getById(),
+  (req, res, next) => new CarController(req, res, next).getById(),
 );
 
 routes.put(
   '/cars/:id',
-  (req, res, next) => new VehicleController(req, res, next).update(),
+  (req, res, next) => new CarController(req, res, next).update(),
 );
 
 export default routes;

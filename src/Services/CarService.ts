@@ -4,7 +4,7 @@ import ICar from '../Interfaces/ICar';
 import CarODM from '../Models/CarODM';
 import CustomError from '../utils/CustomError';
 
-class VehicleService {
+class CarService {
   private createCarDomain(car: ICar): Car {
     return new Car(car);
   }
@@ -43,4 +43,4 @@ class VehicleService {
   }
 }
 
-export default VehicleService;
+export default CarService;

@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import Sinon from 'sinon';
 import { Model } from 'mongoose';
-import VehicleService from '../../../src/Services/VehicleService';
+import CarService from '../../../src/Services/CarService';
 import ICar from '../../../src/Interfaces/ICar';
 import CustomError from '../../../src/utils/CustomError';
 
@@ -30,7 +30,7 @@ describe('Testes para Vehicle Service', function () {
     Sinon.stub(Model, 'create').resolves(response);
 
     // Act
-    const service = new VehicleService();
+    const service = new CarService();
     const result = await service.create(request);
 
     // Assert
@@ -64,7 +64,7 @@ describe('Testes para Vehicle Service', function () {
     Sinon.stub(Model, 'find').resolves(response);
 
     // Act
-    const service = new VehicleService();
+    const service = new CarService();
     const result = await service.getAll();
 
     // Assert
@@ -87,7 +87,7 @@ describe('Testes para Vehicle Service', function () {
     Sinon.stub(Model, 'findById').resolves(response);
 
     // Act
-    const service = new VehicleService();
+    const service = new CarService();
     const result = await service.getById(id);
 
     // Assert
@@ -101,7 +101,7 @@ describe('Testes para Vehicle Service', function () {
 
     // Act
     try {
-      const service = new VehicleService();
+      const service = new CarService();
       await service.getById(id);
     } catch (error) {
     // Assert
@@ -117,7 +117,7 @@ describe('Testes para Vehicle Service', function () {
 
     // Act
     try {
-      const service = new VehicleService();
+      const service = new CarService();
       await service.getById(id);
     } catch (error) {
     // Assert
