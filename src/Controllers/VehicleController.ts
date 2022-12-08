@@ -29,6 +29,25 @@ class VehicleController {
     this.res.status(201).json(newCar);
   }
 
+  public async update() {
+    const { id } = this.req.params;
+    const car: ICar = {
+      model: this.req.body.model,
+      year: this.req.body.year,
+      color: this.req.body.color,
+      status: this.req.body.status,
+      buyValue: this.req.body.buyValue,
+      doorsQty: this.req.body.doorsQty,
+      seatsQty: this.req.body.seatsQty,
+    };
+    try {
+      const updatedCar = await this.service.update(car, id);
+      this.res.status(200).json(updatedCar);
+    } catch (error) {
+      this.next(error);
+    }
+  }
+
   public async getAll() {
     const cars = await this.service.getAll();
     this.res.status(200).json(cars);

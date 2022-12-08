@@ -15,6 +15,15 @@ class VehicleService {
     return this.createCarDomain(newCar);
   }
 
+  public async update(car: ICar, id: string) {
+    if (!isValidObjectId(id)) throw new CustomError('Invalid mongo id', 422);
+    const carODM = new CarODM();
+    await carODM.update(car, id);
+    const updatedCar = await carODM.getById(id);
+    if (!updatedCar) throw new CustomError('Car not found', 404);
+    return this.createCarDomain(updatedCar);
+  }
+
   public async getAll() {
     const carODM = new CarODM();
     const cars = await carODM.getAll();

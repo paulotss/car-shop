@@ -22,6 +22,10 @@ class CarODM {
     return this.model.create({ ...car });
   }
 
+  public async update(car: ICar, id: string) {
+    return this.model.updateOne({ _id: id }, { ...car });
+  }
+
   public async getAll(): Promise<ICar[]> {
     return this.model.find();
   }
