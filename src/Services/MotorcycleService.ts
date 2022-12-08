@@ -20,7 +20,7 @@ class MotorcycleService {
     const motorcycleODM = new MotorcycleODM();
     await motorcycleODM.update(motorcycle, id);
     const updatedMotorcycle = await motorcycleODM.getById(id);
-    if (!updatedMotorcycle) throw new CustomError('Car not found', 404);
+    if (!updatedMotorcycle) throw new CustomError('Motorcycle not found', 404);
     return this.createCarDomain(updatedMotorcycle);
   }
 
@@ -38,7 +38,7 @@ class MotorcycleService {
     if (!isValidObjectId(id)) throw new CustomError('Invalid mongo id', 422);
     const motorcycleODM = new MotorcycleODM();
     const motorcycle = await motorcycleODM.getById(id);
-    if (!motorcycle) throw new CustomError('Car not found', 404);
+    if (!motorcycle) throw new CustomError('Motorcycle not found', 404);
     return this.createCarDomain(motorcycle);
   }
 }
